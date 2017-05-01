@@ -14,7 +14,7 @@ tidy_data <- read.table("tidy_data.txt")
 ## test2
 ### test3
 
-``` G
+```R
 
 abd
 ```
