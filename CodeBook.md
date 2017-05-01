@@ -11,10 +11,10 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
--classification information
---Subject: identification number for each subject from 1 to 30.
---Activity: 6 types of activities each subject performed.
-
+- classification information
+- Subject: identification number for each subject from 1 to 30.
+- Activity: 6 types of activities each subject performed.
+ 
 
 Feature Selection 
 =================
@@ -28,27 +28,27 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
--time.Body.Accelerometer-XYZ
--time.Gravity.Accelerometer-XYZ
--time.Body.Accelerometer.Jerk-XYZ
--time.Body.Gyroscope-XYZ
--time.Body.Gyroscope.Jerk-XYZ
--time.Body.Accelerometer.Magnitude
--time.Gravity.Accelerometer.Magnitude
--time.Body.Accelerometer.Jerk.Magnitude
--time.Body.Gyroscope.Magnitude
--time.Body.Gyroscope.Jerk.Magnitude
--frequency.Body.Accelerometer-XYZ
--frequency.Body.Accelerometer.Jerk-XYZ
--frequency.Body.Gyroscope-XYZ
--frequency.Body.Accelerometer.Magnitude
--frequency.Body.Accelerometer.Jerk.Magnitude
--frequency.Body.Gyroscope.Magnitude
--frequency.Body.Gyroscope.Jerk.Magnitude
+- time.Body.Accelerometer-XYZ
+- time.Gravity.Accelerometer-XYZ
+- time.Body.Accelerometer.Jerk-XYZ
+- time.Body.Gyroscope-XYZ
+- time.Body.Gyroscope.Jerk-XYZ
+- time.Body.Accelerometer.Magnitude
+- time.Gravity.Accelerometer.Magnitude
+- time.Body.Accelerometer.Jerk.Magnitude
+- time.Body.Gyroscope.Magnitude
+- time.Body.Gyroscope.Jerk.Magnitude
+- frequency.Body.Accelerometer-XYZ
+- frequency.Body.Accelerometer.Jerk-XYZ
+- frequency.Body.Gyroscope-XYZ
+- frequency.Body.Accelerometer.Magnitude
+- frequency.Body.Accelerometer.Jerk.Magnitude
+- frequency.Body.Gyroscope.Magnitude
+- frequency.Body.Gyroscope.Jerk.Magnitude
 
 The set of variables that were estimated from these signals are: 
--mean(): Mean value
--std(): Standard deviation
+- mean(): Mean value
+- std(): Standard deviation
 
 Feature Selection 
 =================
