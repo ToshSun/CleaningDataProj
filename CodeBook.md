@@ -11,50 +11,48 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
-For each record it is provided:
-======================================
+classification information
+Subject: identification number for each subject from 1 to 30.
+Activity: 6 types of activities each subject performed.
 
-- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
-- Triaxial Angular velocity from the gyroscope. 
-- A 561-feature vector with time and frequency domain variables. 
-- Its activity label. 
-- An identifier of the subject who carried out the experiment.
 
-The dataset includes the following files:
-=========================================
+Feature Selection 
+=================
 
-- 'README.txt'
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals time.Accelerometer-XYZ and time.Gyroscope-XYZ. These time domain signals were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (time.Body.Accelerometer-XYZ and time.Gravity.Accelerometer-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
-- 'features_info.txt': Shows information about the variables used on the feature vector.
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (time.Body.Accel.Jerk-XYZ and time.Body.Gyro.Jerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (time.Body.Accelerometer.Magnitude, time.Gravity.Accelerometer.Magnitude, time.Body.Accelerometer.Jerk.Magnitude, time.Body.Gyroscope.Magnitude, time.Body.Gyroscope.Jerk.Magnitude). 
 
-- 'features.txt': List of all features.
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing frequency.Body.Accelerometer-XYZ, frequency.Body.Accelerometer.Jerk-XYZ, frequency.Body.Gyroscope-XYZ, frequency.Body,Accelerometer.Jerk.Magnitude, frequency.Body.Gyroscope.Magnitude, frequency.Body.Gyroscope.Jerk.Magnitude. 
 
-- 'activity_labels.txt': Links the class labels with their activity name.
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-- 'train/X_train.txt': Training set.
+time.Body.Accelerometer-XYZ
+time.Gravity.Accelerometer-XYZ
+time.Body.Accelerometer.Jerk-XYZ
+time.Body.Gyroscope-XYZ
+time.Body.Gyroscope.Jerk-XYZ
+time.Body.Accelerometer.Magnitude
+time.Gravity.Accelerometer.Magnitude
+time.Body.Accelerometer.Jerk.Magnitude
+time.Body.Gyroscope.Magnitude
+time.Body.Gyroscope.Jerk.Magnitude
+frequency.Body.Accelerometer-XYZ
+frequency.Body.Accelerometer.Jerk-XYZ
+frequency.Body.Gyroscope-XYZ
+frequency.Body.Accelerometer.Magnitude
+frequency.Body.Accelerometer.Jerk.Magnitude
+frequency.Body.Gyroscope.Magnitude
+frequency.Body.Gyroscope.Jerk.Magnitude
 
-- 'train/y_train.txt': Training labels.
+The set of variables that were estimated from these signals are: 
+mean(): Mean value
+std(): Standard deviation
 
-- 'test/X_test.txt': Test set.
+Feature Selection 
+=================
 
-- 'test/y_test.txt': Test labels.
-
-The following files are available for the train and test data. Their descriptions are equivalent. 
-
-- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
-
-- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
-
-- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
-
-- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
-
-Notes: 
-======
-- Features are normalized and bounded within [-1,1].
-- Each feature vector is a row on the text file.
-
-For more information about this dataset contact: activityrecognition@smartlab.ws
 
 License:
 ========
