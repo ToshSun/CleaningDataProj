@@ -48,4 +48,13 @@ features_1<-sub("Mag",".Magnitude",features_1)
 ```
 ### Step 5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+The latest data set have activity identifier and activity labels ,which are duplicated so that deleting activity.
+then calculate mean of variables group by activity_labels and subject.
+Finally output the final data to the text file.
+```R
+data_all4<-select(data_all3,-activity)
+apply(data_all4[,1:66],2,function(x) tapply(x,data_all4$activity_label,mean))
+apply(data_all4[,1:66],2,function(x) tapply(x,data_all4$subject,mean))
+write.table(data_all4,file="./tidy_data.txt",row.names = FALSE)
+```
 
