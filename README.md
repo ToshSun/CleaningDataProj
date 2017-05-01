@@ -46,15 +46,17 @@ features_1<-sub("Gyro",".Gyroscope",features_1)
 features_1<-sub("Jerk",".Jerk",features_1)
 features_1<-sub("Mag",".Magnitude",features_1)
 ```
-### Step 5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+### Step 5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
 
-The latest data set have activity identifier and activity labels ,which are duplicated so that deleting activity.
-then calculate mean of variables group by activity_labels and subject.
-Finally output the final data to the text file.
+by melting the latest data keeping "subject" and "activity_label" and grouping by "subject","activity_label","variable"
+then calculate mean by summarize .
+Finally recovering the data to the matrix by spread and output the final data to the text file.
 ```R
 data_all4<-select(data_all3,-activity)
-apply(data_all4[,1:66],2,function(x) tapply(x,data_all4$activity_label,mean))
-apply(data_all4[,1:66],2,function(x) tapply(x,data_all4$subject,mean))
-write.table(data_all4,file="./tidy_data.txt",row.names = FALSE)
+meltedData<-melt(data_all4,id_vars=c("subject","activity_label"),value.name = "value",variable.name = "variable")
+group_1<-group_by(meltedData,subject,activity_label,variable)
+summ_data<-summarise(group_1,val=mean(value))
+data_all5<-spread(summ_data,variable,val)
+write.table(data_all5,file="./tidy_data.txt",row.names = FALSE)
 ```
 
